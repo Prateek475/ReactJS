@@ -1,0 +1,14 @@
+h1 {
+ font-weight: 700;
+ font-size: 45px;
+ margin: 10px;
+ margin-bottom: 20px;
+}
+
+.kg-row {
+  margin: 10px;
+}
+
+.kg-button {
+  min-width: 75px;
+}
