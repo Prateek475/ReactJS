@@ -1,9 +1,12 @@
 import ToDoItem1 from "./ToDoItem1";
+import { TodoItemsCtxt } from "../store/TodoItemsCtxt";
+import { useContext } from "react";
 
-function TodoItems({todoitems,del}) {
+function TodoItems() {
+  let itemsCtxt = useContext(TodoItemsCtxt);
   return (
     <div className="todo-container">
-      {todoitems.map((item) => (<ToDoItem1 todoName = {item.name} todoDate = {item.date} key={item.name} del={del} idx ={item.idx}></ToDoItem1>))}
+      {itemsCtxt.todoItems.map((item) => (<ToDoItem1 todoName = {item.name} todoDate = {item.date} key={item.name} del={itemsCtxt.del} idx ={item.idx}></ToDoItem1>))}
     </div>
   );
 }

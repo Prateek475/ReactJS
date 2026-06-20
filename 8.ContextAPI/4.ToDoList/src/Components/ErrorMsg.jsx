@@ -1,7 +1,11 @@
-function ErrorMsg({todoItems}) {
+import { TodoItemsCtxt } from "../store/TodoItemsCtxt";
+import { useContext } from "react";
+
+function ErrorMsg() {
+  let itemsCtxt = useContext(TodoItemsCtxt);
   return (
     <>
-      {todoItems.length == 0 ?<h1>Congratulations your task are completed...</h1> : null};
+      {itemsCtxt.todoItems.length == 0 ?<h1>Congratulations your task are completed...</h1> : null};
     </>
   );
 }

@@ -1,14 +1,16 @@
-import { useRef } from 'react';
+import { useContext, useRef } from 'react';
 import styles from './Row.module.css';
 import { BiMessageAdd } from "react-icons/bi";
+import { TodoItemsCtxt } from '../store/TodoItemsCtxt';
 
 
-function AddTodo({fn}) {
+function AddTodo() {
+  let itemsCtxt = new useContext(TodoItemsCtxt);
   let name1 = useRef();
   let date1 = useRef();
   function handleClick(event) {
     event.preventDefault();
-    fn(name1.current.value,date1.current.value);
+    itemsCtxt.modify(name1.current.value,date1.current.value);
     name1.current.value = "";
     date1.current.value ="";
   }

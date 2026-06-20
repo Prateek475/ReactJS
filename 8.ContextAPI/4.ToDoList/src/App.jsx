@@ -5,21 +5,10 @@ import "./App.css";
 import TodoItems from "./Components/TodoItems";
 import { useState } from "react";
 import ErrorMsg from "./Components/ErrorMsg";
+import { TodoItemsCtxt } from "./store/TodoItemsCtxt";
 
 function App() {
-  let [todoItems,setState] = useState([{
-    idx : 1,
-    name : 'Buy Milk',
-    date : '2023-10-04',
-  },{
-    idx : 2,
-    name : 'Go To College',
-    date : '2023-10-04',
-  },{
-    idx : 3,
-    name : 'Be disciplied',
-    date : 'EveryTime',
-  }]);
+  let [todoItems,setState] = useState([]);
   function modify(name,date) {
     let obj = {
       idx : todoItems.length+1,
@@ -32,12 +21,14 @@ function App() {
     setState((currItems) => currItems.filter(item => item.idx != idx));
   }
   return (
-    <center className='todo-container'>
-      <AppName></AppName>
-      <AddTodo fn ={modify}></AddTodo>
-      <ErrorMsg todoItems={todoItems}></ErrorMsg>
-      <TodoItems todoitems={todoItems} del={del}></TodoItems>
-    </center>
+    <TodoItemsCtxt.Provider value ={{todoItems:todoItems,modify:modify,del:del}}>
+      <center className='todo-container'>
+        <AppName></AppName>
+        <AddTodo></AddTodo>
+        <ErrorMsg></ErrorMsg>
+        <TodoItems></TodoItems>
+      </center>
+    </TodoItemsCtxt.Provider>
   );
 }
 
