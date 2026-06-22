@@ -6,7 +6,7 @@ function TodoItems() {
   let itemsCtxt = useContext(TodoItemsCtxt);
   return (
     <div className="todo-container">
-      {itemsCtxt.todoItems.map((item) => (<ToDoItem1 todoName = {item.name} todoDate = {item.date} key={item.name} del={itemsCtxt.del} idx ={item.idx}></ToDoItem1>))}
+      {itemsCtxt.todoItems.map((item) => (<ToDoItem1 todoName = {item.name} todoDate = {item.date} key={item.name} idx ={item.idx}></ToDoItem1>))}
     </div>
   );
 }
