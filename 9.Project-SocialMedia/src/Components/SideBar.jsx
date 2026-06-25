@@ -1,9 +1,9 @@
-function SideBar() {
+function SideBar({ selTab, setTab }) {
   return (
     <>
       <div
         className="d-flex flex-column flex-shrink-0 p-3 text-bg-dark sideBar"
-        style={{ width: "280px" }} 
+        style={{ width: "280px" }}
       >
         {" "}
         <a
@@ -17,16 +17,20 @@ function SideBar() {
             height="32"
             aria-hidden="true"
           >
-            <use xlink:href="#bootstrap"></use>
+            <use xlinkHref="#bootstrap"></use>
           </svg>{" "}
           <span className="fs-4">Sidebar</span>{" "}
         </a>{" "}
         <hr />{" "}
         <ul className="nav nav-pills flex-column mb-auto">
           {" "}
-          <li className="nav-item">
+          <li className="nav-item" onClick={() => setTab("Home")}>
             {" "}
-            <a href="#" className="nav-link active" aria-current="page">
+            <a
+              href="#"
+              className={`nav-link  text-white ${selTab == "Home" && "active"}`}
+              aria-current="page"
+            >
               {" "}
               <svg
                 className="bi pe-none me-2"
@@ -34,14 +38,17 @@ function SideBar() {
                 height="16"
                 aria-hidden="true"
               >
-                <use xlink:href="#home"></use>
+                <use xlinkHref="#home"></use>
               </svg>
               Home
             </a>{" "}
           </li>{" "}
-          <li>
+          <li onClick={() => setTab("Create")}>
             {" "}
-            <a href="#" className="nav-link text-white">
+            <a
+              href="#"
+              className={`nav-link text-white ${selTab == "Create" && "active"}`}
+            >
               {" "}
               <svg
                 className="bi pe-none me-2"
@@ -49,7 +56,7 @@ function SideBar() {
                 height="16"
                 aria-hidden="true"
               >
-                <use xlink:href="#speedometer2"></use>
+                <use xlinkHref="#speedometer2"></use>
               </svg>
               Create Post
             </a>{" "}
