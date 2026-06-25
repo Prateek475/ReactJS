@@ -27,18 +27,36 @@ function reducerFn(currList,action) {
   if(action.type == 'DEL_ITEM') {
     newList = currList.filter((item) => item.id != action.id);
   } else {
-
+    let obj = {
+      id : action.id,
+      title : action.title,
+      body : action.body,
+      reactions : action.reactions,
+      userId : action.userId,
+      tags : action.tags
+    }
+    newList = [...currList,obj];
   }
   return newList;
 }
 
 function PostListProvider({children}) {
   const [postList,dispatchList] = useReducer(reducerFn,DEFAULT_POST_LIST);
-  function addPost() {
 
+  function addPost(title,body,reactions,userId,tags) {
+    let action = {
+      id : postList.length+1,
+      type : 'ADD_ITEM',
+      title,
+      body,
+      reactions,
+      userId,
+      tags
+    }
+    dispatchList(action);
   }
+
   function deletePost(id) {
-    console.log(id);
     let obj = {
       type : 'DEL_ITEM',
       id : id
