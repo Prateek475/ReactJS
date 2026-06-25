@@ -26,7 +26,7 @@ function reducerFn(currList,action) {
   let newList = currList;
   if(action.type == 'DEL_ITEM') {
     newList = currList.filter((item) => item.id != action.id);
-  } else {
+  } else if(action.type == 'ADD_ITEM') {
     let obj = {
       id : action.id,
       title : action.title,
@@ -45,7 +45,7 @@ function PostListProvider({children}) {
 
   function addPost(title,body,reactions,userId,tags) {
     let action = {
-      id : postList.length+1,
+      id : Date.now(),
       type : 'ADD_ITEM',
       title,
       body,

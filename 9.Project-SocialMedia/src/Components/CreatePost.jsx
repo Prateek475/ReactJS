@@ -88,7 +88,7 @@ function CreatePost() {
         />
       </div>
       <button type="submit" className="btn btn-primary">
-        Submit
+        Post
       </button>
     </form>
   );
