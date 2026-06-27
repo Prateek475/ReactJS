@@ -1,0 +1,33 @@
+.App-container {
+  display: flex;
+}
+.Content {
+  width: 100%;
+}
+.sideBar {
+  min-height: 735px;
+}
+
+.post-card {
+  margin: 20px 50px;
+  min-width: 30rem;
+}
+
+.tagss {
+  margin: 0px 4px;
+}
+
+.reactions {
+  margin: 10px 0px 0px 0px;
+}
+
+.create-post {
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 15px;
+}
+
+.wlcm-msg {
+  margin: 100px 0px;
+
+}
