@@ -38,17 +38,19 @@ function reducerFn(currList,action) {
     }
     newList = [...currList,obj];
   } else if(action.type == 'ADD_POSTS') {
+    let newL = [];
     action.arr.map((obj) => {
       let newObj = {
         id : obj.id,
         title : obj.title,
         body : obj.body,
-        reactions : obj.likes+obj.dislikes,
+        reactions : obj.reactions.likes+obj.reactions.dislikes,
         userId : obj.userId,
         tags : obj.tags
       }
-      newList = [...newList,newObj];
+      newL = [...newL,newObj];
     })
+    return newL; 
   }
   return newList;
 }
